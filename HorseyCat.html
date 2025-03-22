@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horsey and Cat</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: lightblue;
+        }
+
+        .horse {
+            position: relative;
+            width: 220px;
+            height: 120px;
+            background-color: brown;
+            border-radius: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .horse-text {
+            position: absolute;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+
+        .head {
+            position: absolute;
+            top: -50px;
+            left:-5px;
+            width: 60px;
+            height: 60px;
+            background-color: brown;
+            border-radius: 50%;
+        }
+
+        .neck {
+            position: absolute;
+            top: -10px;
+            left: 2px;
+            width: 30px;
+            height: 70px;
+            background-color: brown;
+            border-radius: 10px;
+        }
+
+        .eye {
+            position: absolute;
+            top: 15px;
+            left: 40px;
+            width: 10px;
+            height: 10px;
+            background-color: black;
+            border-radius: 50%;
+        }
+
+        .ear, .ear2 {
+            position: absolute;
+            width: 10px;
+            height: 20px;
+            background-color: brown;
+            border-radius: 5px;
+        }
+
+        .ear { top: -10px; left: 20px; }
+        .ear2 { top: -10px; left: 35px; }
+
+        .leg {
+            position: absolute;
+            width: 20px;
+            height: 80px;
+            background-color: brown;
+            bottom: -80px;
+            border-radius: 5px;
+        }
+
+        .leg1 { left: 20px; }
+        .leg2 { left: 70px; }
+        .leg3 { right: 70px; }
+        .leg4 { right: 20px; }
+
+        .tail {
+            position: absolute;
+            width: 15px;
+            height: 70px;
+            background-color: brown;
+            bottom: 0;
+            right: -10px;
+            border-radius: 10px;
+            transform: rotate(20deg);
+        }
+
+        .cat {
+            position: absolute;
+            top: -40px;
+            left: 70px;
+            width: 60px;
+            height: 60px;
+            background-color: gray;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cat-text {
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+
+        button {
+            margin-top: 90px;
+            padding: 10px 20px;
+            background-color: darkblue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: navy;
+        }
+    </style>
+</head>
+<body>
+    <!-- Horsey -->
+    <div class="horse">
+        <div class="horse-text">HorseyCyril</div>
+
+        <!-- Head -->
+        <div class="head">
+            <div class="ear"></div>
+            <div class="ear2"></div>
+            <div class="eye"></div>
+        </div>
+
+        <!-- Neck -->
+        <div class="neck"></div>
+
+        <!-- Legs -->
+        <div class="leg leg1"></div>
+        <div class="leg leg2"></div>
+        <div class="leg leg3"></div>
+        <div class="leg leg4"></div>
+
+        <!-- Tail -->
+        <div class="tail"></div>
+
+        <!-- Cat riding Horsey -->
+        <div class="cat">
+            <div class="cat-text">CatCuevas</div>
+        </div>
+    </div>
+
+    <!-- Sound Button -->
+    <button onclick="playSound()">Play Horsey Sound</button>
+
+    <!-- Audio File -->
+    <audio id="horseSound" src="https://www.dropbox.com/scl/fi/n8gx6nf7t3z002ktc1caf/horse-neigh-261131.mp3?rlkey=6r4jkvr2hpj8xkjff91btnjli&st=s64ry9o7&raw=1"></audio>
+
+    <!-- JavaScript to Play Sound -->
+    <script>
+        function playSound() {
+            const sound = document.getElementById('horseSound');
+            sound.play();
+        }
+    </script>
+</body>
+</html>
