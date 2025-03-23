@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scene Switcher</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        .scene {
+            text-align: center;
+        }
+        .scene1 {
+            background-color: gray;
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        .scene2 {
+            background-color: lightblue;
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 20px;
+            cursor: pointer;
+            position: absolute;
+        }
+        #button2 {
+            left: 0; /* Initial position of Button 2 on the left */
+        }
+    </style>
+</head>
+<body>
+    <div id="scene1" class="scene scene1">
+        <h1>Pogi Ba Si Justin Hipolito?</h1>
+        <button id="button1" onclick="switchToScene2()">Oo</button>
+        <button id="button2" onclick="hindeButtonClicked()">Hinde</button>
+    </div>
+
+    <div id="scene2" class="scene scene2" style="display: none;">
+        <h1>Thank You!</h1>
+        <button onclick="restartScene()">Restart</button>
+    </div>
+
+    <script>
+        function switchToScene2() {
+            document.getElementById('scene1').style.display = 'none';
+            document.getElementById('scene2').style.display = 'block';
+        }
+
+        function hindeButtonClicked() {
+            alert("You clicked 'Hinde'");
+        }
+
+        function restartScene() {
+            document.getElementById('scene1').style.display = 'block';
+            document.getElementById('scene2').style.display = 'none';
+        }
+
+        // Move Button 2 away from the mouse on hover
+        const button2 = document.getElementById('button2');
+
+        button2.addEventListener('mouseover', () => {
+            button2.style.transition = 'all 0.2s ease'; // Add smooth transition
+            moveButton2Randomly(); // Move the button to a new position
+        });
+
+        // Function to move the button to a random position
+        function moveButton2Randomly() {
+            // Get the viewport dimensions
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
+
+            // Calculate random positions within the viewport
+            const randomX = Math.random() * (viewportWidth - button2.offsetWidth); // Random X within the window
+            const randomY = Math.random() * (viewportHeight - button2.offsetHeight); // Random Y within the window
+
+            // Set the new position for Button 2
+            button2.style.left = `${randomX}px`;
+            button2.style.top = `${randomY}px`;
+        }
+    </script>
+</body>
+</html>
